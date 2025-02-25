@@ -304,7 +304,7 @@ class summary_tools:
             summary_info = summary_info.split("\n")
             found_both = [False, False]
             for info in summary_info:
-                chimera_string_check = re.search("\A[0-9].*chimeras*", info)
+                chimera_string_check = re.search("^[0-9].*chimeras*", info)
                 total_seq_string_check = re.findall(
                     ".*in.([0-9]*).*total sequences.", info)
                 if chimera_string_check is not None:
