@@ -1,8 +1,6 @@
 #!/usr/bin/bash
-yaml_config_output_file=$(realpath "${1}") # command line argument for output yaml configuration file for main script
-cowpi_directory=$(realpath "${2}") # directory for cowpi output results to go
+cowpi_directory=$(realpath "${1}") # directory for cowpi output results to go
 
-echo "${yaml_config_output_file}"
 if [ ! -d "${cowpi_directory}" ] # checks if directory is present then produces it
 then
 
