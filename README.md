@@ -22,12 +22,12 @@ You can get this workflow to analyse data from a **single** study or **multiple*
 
 ### Unclustered Data (raw fastq files)
 
-#### Analysis of a single study (i.e. fastq files)
+#### Analysis of a single study
 
   * Create a data folder
   * Put all the fastq files in the folder
 
-#### Analysis of multiple studies (i.e. fastq files)
+#### Analysis of multiple studies
 
   * Create a data folder
   * In the data folder, create a folder for the data associated with each study
@@ -52,7 +52,7 @@ You can get this workflow to analyse data from a **single** study or **multiple*
 
 Contains following scripts:
 
-**1. 'cowpi_get_and_prep_data.sh'**
+**1. `cowpi_get_and_prep_data.sh`**
 
 run the command like this:
 
@@ -72,14 +72,14 @@ So for example:
 ```
 
 
-**2. 'filter_archaea.py' (optional)**
+**2. `filter_archaea.py` (optional)**
 
 This python script filters archaea from the initial cowpi data files. This optional step can be used if you do not expect archaea data (i.e. used bacterial-specific primers).
 
 Argument one: archaea file list (see 'archaea_file.txt') path
 Argument Two: The initial CowPi precalculated files directory (produced above)
 
-**3. 'cowpi_main_workflow.py'**
+**3. `cowpi_main_workflow.py`**
 
 This is the main workflow python script. Takes the yaml configuration file as the first argument, then runs each step of the CowPi workflow and generates functional pathway results, as well as producing a summary file of each step. 
 
@@ -93,7 +93,7 @@ where:
 
 Example: `./cowpi_main_workflow.py mydata_info.yml`
 
-***4. 'conversion_of_read_names.py' (optional)***
+***4. `conversion_of_read_names.py` (optional)***
 
 Depending on headers of fasta sequence file, this can result in problems in output from `vsearch` stage of cowpi. This adds the file name into the headers and checks for any "."s in file sample name which can cause issues.
 
