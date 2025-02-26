@@ -37,7 +37,14 @@ You can get this workflow to analyse data from a **single** study or **multiple*
 
 #### Analysis of a single study
 
+  * ...
+  * ...
+
 #### Analysis of multiple studies
+
+  * ...
+  * ...
+
 
 ---
 
