@@ -20,8 +20,8 @@ do
 
     gunzipped_download_name=$(echo "${download_path}" | sed 's/.gz//' | sed 's/.renamed//')
 
-    echo "download_path: ${download_path}"
-    echo "gunzipped_download_name: ${gunzipped_download_name}"
+ #   echo "download_path: ${download_path}"
+ #   echo "gunzipped_download_name: ${gunzipped_download_name}"
 
 
     if [ -f "${gunzipped_download_name}" ]; then
@@ -47,8 +47,8 @@ yaml_pre_clust_configs_array=("copy_number_table_file: ${cowpi_directory}/CowPi_
 "pre_clustered_files:" "  fastq_cluster_file_path:" "  cluster_table_path:")
 
 # Define the output file names
-yaml_config_output_file_1="${cowpi_directory}/raw-data.yml"
-yaml_config_output_file_2="${cowpi_directory}/preclustered-data.yml"
+yaml_config_output_file_1="${cowpi_directory}/../raw-data.yml"
+yaml_config_output_file_2="${cowpi_directory}/../preclustered-data.yml"
 
 # Write the first array to the first output file
 for config in "${yaml_configs_array[@]}"
