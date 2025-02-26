@@ -27,6 +27,7 @@ do
     if [ -f "${gunzipped_download_name}" ]; then
         echo "File ${gunzipped_download_name} already exists."
     else
+        echo "Get the data"
  #       wget "${download}" -O "${download_path}"
  #       gunzip "${download_path}"
     fi
