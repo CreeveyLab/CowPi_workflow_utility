@@ -20,11 +20,15 @@ do
 
     gunzipped_download_name=$(echo "${download_name}" | sed 's/.gz//')
 
+    echo "download_name: ${download_name}"
+    echo "gunzipped_download_name: ${gunzipped_download_name}"
+
+
     if [ -f "${gunzipped_download_name}" ]; then
         echo "File ${gunzipped_download_name} already exists."
     else
-        wget "${download}" -O "${download_path}"
-        gunzip "${download_path}"
+ #       wget "${download}" -O "${download_path}"
+ #       gunzip "${download_path}"
     fi
 
 done
