@@ -24,14 +24,14 @@ You can get this workflow to analyse data from a **single** study or **multiple*
 
 #### Analysis of a single study (i.e. fastq files)
 
-..* Create a data folder
-..* Put all the fastq files in the folder
+  * Create a data folder
+  * Put all the fastq files in the folder
 
 #### Analysis of multiple studies (i.e. fastq files)
 
-..* Create a data folder
-..* In the data folder, create a folder for the data associated with each study
-..* Put the data in the associated stuy folders
+  * Create a data folder
+  * In the data folder, create a folder for the data associated with each study
+  * Put the data in the associated stuy folders
 
 ### Pre-clustered Data (OTU/ASV Table and Representative sequences)
 
