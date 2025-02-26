@@ -18,9 +18,9 @@ do
     download_name=$(echo "${download}" | awk -F'/' '{print $NF}' | sed 's/?download=1//')
     download_path="${cowpi_directory}/${download_name}"
 
-    gunzipped_download_name=$(echo "${download_name}" | sed 's/.gz//')
+    gunzipped_download_name=$(echo "${download_path}" | sed 's/.gz//')
 
-    echo "download_name: ${download_name}"
+    echo "download_path: ${download_path}"
     echo "gunzipped_download_name: ${gunzipped_download_name}"
 
 
