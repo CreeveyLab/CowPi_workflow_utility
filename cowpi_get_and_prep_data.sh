@@ -18,7 +18,7 @@ do
     download_name=$(echo "${download}" | awk -F'/' '{print $NF}' | sed 's/?download=1//')
     download_path="${cowpi_directory}/${download_name}"
 
-    gunzipped_download_name=$(echo "${download_name}" | sed 's/.gz$//')
+    gunzipped_download_name=$(echo "${download_name}" | sed 's/.gz//')
 
     if [ -f "${gunzipped_download_name}" ]; then
         echo "File ${gunzipped_download_name} already exists."
