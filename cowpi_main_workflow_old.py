@@ -418,27 +418,37 @@ class dataset(workflow_tools, summary_tools):
 
         self.run_workflow()
 
-def run_workflow(self):
-    if 'pre_clustered_files' in self.configuration_dict.keys() and isinstance(self.configuration_dict['pre_clustered_files'], dict):
-        pre_cluster_file_dict = self.configuration_dict['pre_clustered_files']
-        cluster_centroids_path = pre_cluster_file_dict['fastq_cluster_file_path']
-        cluster_table = pre_cluster_file_dict['cluster_table_path']
-    else:
+    def run_workflow(self):
         self.initial_fastq_paths = self.get_fastq_paths()
+
         print(self.configuration_dict)
 
         if self.configuration_dict['remove_chimeras']:
+            
             fastq_paths = self.chimera_removal_and_summarise()
+        
         else:
+            
             fastq_paths = self.initial_fastq_paths
 
-        merged_fastq_path = self.merge_fastqs_and_summarise(fastq_paths)
-        cluster_table, cluster_centroids_path = self.cluster_and_summarise(merged_fastq_path)
-        
-    filtered_biom = self.align_and_summarise(cluster_centroids_path, cluster_table)
-    normalised_biom = self.normalise_by_copy_number(filtered_biom)
-    self.predict_and_categorise_metagenomes(normalised_biom)
-    self.get_post_analysis_summary()
+        if 'pre_clustered_files' in self.configuration_dict.keys() and isinstance(self.configuration_dict['pre_clustered_files'], dict) == True:
+        #   no_clustering_info = self.configuration_dict['cluster?']
+            pre_cluster_file_dict = self.configuration_dict['pre_clustered_files']
+            cluster_centroids_path = pre_cluster_file_dict['fastq_cluster_file_path']
+            cluster_table = pre_cluster_file_dict['cluster_table_path']
+
+        else:
+
+            merged_fastq_path = self.merge_fastqs_and_summarise(fastq_paths)
+            cluster_table, cluster_centroids_path = self.cluster_and_summarise(merged_fastq_path)
+            
+        filtered_biom = self.align_and_summarise(
+            cluster_centroids_path, cluster_table)
+
+        normalised_biom = self.normalise_by_copy_number(filtered_biom)
+        self.predict_and_categorise_metagenomes(normalised_biom)
+
+        self.get_post_analysis_summary()
 
     def get_sample_names(self):
         sample_paths_without_ext = [".".join(fastq.split(
