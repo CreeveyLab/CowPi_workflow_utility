@@ -408,6 +408,8 @@ class summary_tools:
 class dataset(workflow_tools, summary_tools):
 
     def __init__(self, dataset_path, configuration_dict, start_time):
+        if dataset_path is None:
+            raise ValueError("dataset_path cannot be None")
         self.dataset_path = dataset_path
         self.initial_fastq_paths = self.get_fastq_paths()
         self.sample_names = self.get_sample_names()
@@ -417,7 +419,7 @@ class dataset(workflow_tools, summary_tools):
         summary_tools.__init__(self, configuration_dict)
 
         self.run_workflow()
-        
+
     def get_fastq_paths(self):
         fastq_paths = ["%s/%s" % (self.dataset_path, file) for file in os.listdir(
             self.dataset_path) if file[-6:] == '.fastq' or file[-3:] == '.fq']
