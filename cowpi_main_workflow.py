@@ -417,6 +417,11 @@ class dataset(workflow_tools, summary_tools):
         summary_tools.__init__(self, configuration_dict)
 
         self.run_workflow()
+        
+    def get_fastq_paths(self):
+        fastq_paths = ["%s/%s" % (self.dataset_path, file) for file in os.listdir(
+            self.dataset_path) if file[-6:] == '.fastq' or file[-3:] == '.fq']
+        return fastq_paths
 
 def run_workflow(self):
     if 'pre_clustered_files' in self.configuration_dict.keys() and isinstance(self.configuration_dict['pre_clustered_files'], dict):
